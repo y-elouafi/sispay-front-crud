@@ -1,0 +1,11 @@
+<div class="w-100 text-center my-4">
+    <div class="">
+        <h2>PRENOM: <span class="text-primary">{{user.prenom | uppercase}}</span></h2>
+        <h2>NOM: <span class="text-primary">{{user.nom | uppercase}}</span></h2>
+        <h2>EMAIL: <span class="text-primary">{{user.email | uppercase}}</span></h2>
+        <h2>TELEPHONE: <span class="text-primary">{{user.telephone | uppercase}}</span></h2>
+    </div>
+    <div class="my-4">
+        <a [routerLink]="['/']"  class="btn btn-primary">Retournez a l'accueill</a>
+    </div>
+</div>

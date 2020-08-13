@@ -1,0 +1,54 @@
+<div class="mt-4">
+    <div class="text-center mx-3">
+        <div class="row justify-content-center text-secondary">
+            <p class="display-4 mx-2">Ajouter Utilisateur <i class="far fa-hand-point-right"></i> </p>
+            
+            <a [routerLink]="['/add']" class="shadow bg-primary border border-primary rounded-circle display-4 mx-2">
+                <i class="fas fa-plus text-light"></i>
+            </a>
+        </div>
+        <div class="my-3">
+            <form [formGroup]="form">
+              <div class="row justify-content-around w-100 my-4">
+                <div class="input-group mb-3 col-md-4">
+                    <input type="text" class="form-control" placeholder="Prenom" formControlName="prenom">
+                </div>
+                <div class="input-group mb-3 col-md-4">
+                    <input type="text" class="form-control" placeholder="Nom" formControlName="nom">
+                </div>
+                <div class="input-group mb-3 col-md-4">
+                  <button class="btn btn-primary w-100" (click)="getUsersByCriteria()">Chercher <i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </form>
+        </div>
+        <div class="my-3">
+            <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telephone</th>
+                    <th scope="col">Modifier</th>
+                    <th scope="col">Supprimer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users; let i = index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td><a a [routerLink]="['/detail', user.id]">{{user.prenom}}</a></td>
+                    <td>{{user.nom}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.telephone}}</td>
+                    <td><a [routerLink]="['/update', user.id]" ><i class="fas fa-edit text-success"></i></a></td>
+                    <td ><i class="fas fa-trash-alt text-danger" style="cursor: pointer;" (click)="deleteUser(user.id)"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+

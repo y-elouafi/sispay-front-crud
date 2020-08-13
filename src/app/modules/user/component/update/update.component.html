@@ -1,0 +1,36 @@
+<div class="">
+    <form [formGroup]="form" *ngIf="form">
+        <div class="row justify-content-center w-100 my-4">
+            <div class="input-group mb-3 col-md-4">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fas fa-user-tie"></i>
+                </div>
+                <input type="text" [ngClass]="{'form-control': true,'border border-danger': isInvalid('prenom')}" placeholder="Prenom" formControlName="prenom">
+            </div>
+            <div class="input-group mb-3 col-md-4">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fas fa-user-tie"></i>
+                </div>
+                <input type="text" [ngClass]="{'form-control': true,'border border-danger': isInvalid('nom')}" placeholder="Nom" formControlName="nom">
+            </div>
+        </div>
+        <div class="row justify-content-center w-100 my-4">
+            <div class="input-group mb-3 col-md-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input type="email" [ngClass]="{'form-control': true,'border border-danger': isInvalid('email')}" placeholder="Email" formControlName="email">
+            </div>
+            <div class="input-group mb-3 col-md-4">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fas fa-phone-alt"></i>
+                </div>
+                <input type="tel" [ngClass]="{'form-control': true,'border border-danger': isInvalid('telephone')}" placeholder="Telephone" formControlName="telephone">
+            </div>
+        </div>
+        <div class="row justify-content-center w-100 my-4">
+                <button class="btn btn-success text-center col-md-4" (click)="onSubmit()">Modifier</button>
+        </div>
+        
+    </form>
+</div>
