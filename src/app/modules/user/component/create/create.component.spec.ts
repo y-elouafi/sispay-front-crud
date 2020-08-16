@@ -9,7 +9,7 @@ import { CreateComponent } from './create.component';
 import { ApiProvider } from '../../../../shared/providers/api';
 import { User } from '../../../../models/user';
 
-export const mockDog: any = {
+export const mockUser: any = {
   prenom: 'youssef',
   nom: 'elouafi',
   email: 'youssef@gmail.com',
@@ -20,7 +20,7 @@ fdescribe('CreateComponent', () => {
   let httpTestingController: HttpTestingController;
   let component: CreateComponent;
   let api: ApiProvider;
-  let user: User = mockDog;
+  let user: User = mockUser;
   let fixture: ComponentFixture<CreateComponent>;
 
   beforeEach(async(() => {
@@ -61,11 +61,11 @@ fdescribe('CreateComponent', () => {
   it('api should provide data', () => {
     api.createUser(user).subscribe((res: User) => {
       expect(res).not.toBe(null);
-      expect(JSON.stringify(res)).toEqual(JSON.stringify(mockDog));
+      expect(JSON.stringify(res)).toEqual(JSON.stringify(mockUser));
     });
     const req = httpTestingController
               .expectOne(api.baseUrl+'/users');
-    req.flush(mockDog);
+    req.flush(mockUser);
     expect(req.request.method).toBe('POST');
     expect(req.request.body).toEqual(user);
   });
