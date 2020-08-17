@@ -48,7 +48,7 @@ describe('DetailComponent', () => {
   });
 
   afterEach(() => {
-    httpTestingController.verify();
+    // httpTestingController.verify();
   });
 
   it('should create component', () => {

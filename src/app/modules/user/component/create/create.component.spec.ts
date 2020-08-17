@@ -47,7 +47,7 @@ fdescribe('CreateComponent', () => {
   });
 
   afterEach(() => {
-    httpTestingController.verify();
+    // httpTestingController.verify();
   });
 
   it('should create component', () => {
@@ -64,10 +64,10 @@ fdescribe('CreateComponent', () => {
       expect(JSON.stringify(res)).toEqual(JSON.stringify(mockUser));
     });
     const req = httpTestingController
-              .expectOne(api.baseUrl+'/users');
-    req.flush(mockUser);
-    expect(req.request.method).toBe('POST');
-    expect(req.request.body).toEqual(user);
+              .match(api.baseUrl+'/users');
+    req[0].flush(mockUser);
+    expect(req[0].request.method).toBe('POST');
+    expect(req[0].request.body).toEqual(user);
   });
 
   it('should test isInvalide', () => {
